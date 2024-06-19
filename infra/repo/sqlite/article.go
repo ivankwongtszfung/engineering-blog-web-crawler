@@ -17,7 +17,14 @@ const PREPARE_STATEMENT_ERROR = "Cannot create prepare statement"
 
 func (repo ArticleRepository) Create() error {
 	sqlStmt := `
-	create table article (id text not null primary key, title text, category text, date text, blogURL text, imageURL text);
+	create table IF NOT EXISTS article (
+		id text not null primary key,
+		title text,
+		category text,
+		date text,
+		blogURL text,
+		imageURL text
+	);
 	`
 	_, err := repo.DB.Exec(sqlStmt)
 	if err != nil {
