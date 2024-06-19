@@ -8,6 +8,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/ivankwongtszfung/engineering-blog-web-crawler/config"
 	"github.com/ivankwongtszfung/engineering-blog-web-crawler/entity/blog"
 	"github.com/ivankwongtszfung/engineering-blog-web-crawler/entity/blog/uber"
 	"github.com/ivankwongtszfung/engineering-blog-web-crawler/infra/repo"
@@ -80,7 +81,7 @@ func scrapeUberBlogs(kv kvstore.KVStore, articles chan<- *blog.Article) {
 
 func main() {
 
-	kv := kvstore.NewRedisStore("localhost:6379")
+	kv := kvstore.NewRedisStore(config.REDIS_DATABASE)
 	if err := kv.Ping(); err != nil {
 		log.Fatalln("failed to connect to redis", err)
 	}
@@ -91,7 +92,7 @@ func main() {
 		scrapeUberBlogs(kv, articles)
 	}()
 
-	db, err := sql.Open("sqlite3", "./blog.db")
+	db, err := sql.Open(config.DB_DRIVER, config.DB_HOST)
 	if err != nil {
 		log.Fatalln(err)
 	}
