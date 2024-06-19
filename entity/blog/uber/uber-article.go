@@ -3,7 +3,8 @@ package uber
 import (
 	"fmt"
 	"strings"
-	"web_crawler/entity/blog"
+
+	"github.com/ivankwongtszfung/engineering-blog-web-crawler/entity/blog"
 
 	"github.com/gocolly/colly"
 )

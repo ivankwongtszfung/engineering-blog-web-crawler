@@ -6,7 +6,8 @@ import (
 	"log"
 	"os"
 	"testing"
-	"web_crawler/entity/blog"
+
+	"github.com/ivankwongtszfung/engineering-blog-web-crawler/entity/blog"
 
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/pkg/errors"

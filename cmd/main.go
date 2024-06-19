@@ -7,11 +7,12 @@ import (
 	"strings"
 	"sync"
 	"time"
-	"web_crawler/entity/blog"
-	"web_crawler/entity/blog/uber"
-	"web_crawler/infra/repo"
-	"web_crawler/infra/repo/sqlite"
-	"web_crawler/pkg/kvstore"
+
+	"github.com/ivankwongtszfung/engineering-blog-web-crawler/entity/blog"
+	"github.com/ivankwongtszfung/engineering-blog-web-crawler/entity/blog/uber"
+	"github.com/ivankwongtszfung/engineering-blog-web-crawler/infra/repo"
+	"github.com/ivankwongtszfung/engineering-blog-web-crawler/infra/repo/sqlite"
+	"github.com/ivankwongtszfung/engineering-blog-web-crawler/pkg/kvstore"
 
 	"github.com/gocolly/colly"
 )

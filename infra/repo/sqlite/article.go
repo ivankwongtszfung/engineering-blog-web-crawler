@@ -3,7 +3,8 @@ package sqlite
 import (
 	"context"
 	"database/sql"
-	"web_crawler/entity/blog"
+
+	"github.com/ivankwongtszfung/engineering-blog-web-crawler/entity/blog"
 
 	"github.com/pkg/errors"
 )

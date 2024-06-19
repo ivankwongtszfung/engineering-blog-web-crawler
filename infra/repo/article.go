@@ -2,7 +2,8 @@ package repo
 
 import (
 	"context"
-	"web_crawler/entity/blog"
+
+	"github.com/ivankwongtszfung/engineering-blog-web-crawler/entity/blog"
 )
 
 type IArticleRepository interface {
