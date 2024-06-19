@@ -6,4 +6,5 @@ type KVStore interface {
 	Delete(key string) error
 	Exist(key string) (bool, error)
 	Ping() error
+	Close() error
 }

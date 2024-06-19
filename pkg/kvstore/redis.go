@@ -39,3 +39,7 @@ func (r *RedisStore) Delete(key string) error {
 	ctx := context.Background()
 	return r.Client.Del(ctx, key).Err()
 }
+
+func (r *RedisStore) Close() error {
+	return r.Client.Close()
+}
