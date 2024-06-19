@@ -1,7 +1,9 @@
 package uber
 
 import (
+	"crypto/md5"
 	"fmt"
+	"io"
 	"strings"
 
 	"github.com/ivankwongtszfung/engineering-blog-web-crawler/entity/blog"
@@ -12,6 +14,12 @@ import (
 // UberArticle struct embeds Article and implements IExtract interface
 type UberArticle struct {
 	blog.Article
+}
+
+func Hash(text string) string {
+	hasher := md5.New()
+	io.WriteString(hasher, text)
+	return fmt.Sprintf("%x", hasher.Sum(nil))
 }
 
 // ExtractArticle method extracts an article from the given HTMLElement
@@ -43,6 +51,7 @@ func ExtractArticle(e *colly.HTMLElement) (*UberArticle, error) {
 
 	return &UberArticle{
 		Article: blog.Article{
+			Id:       Hash(blogURL),
 			Title:    title,
 			Category: category,
 			Date:     date,
