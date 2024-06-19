@@ -1,0 +1,24 @@
+services:
+  app:
+    build: .
+    volumes:
+      # Optional: mount a volume for persistent storage
+      - ./data:/root/data 
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      # Persist Redis data in local 'redis-data' directory
+      - ./redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
