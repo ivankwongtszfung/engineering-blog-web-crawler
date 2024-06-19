@@ -1,4 +1,4 @@
-module web_crawler
+module github.com/ivankwongtszfung/engineering-blog-web-crawler
 
 go 1.22.2
 
