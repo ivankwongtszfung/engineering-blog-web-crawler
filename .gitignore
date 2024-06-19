@@ -23,3 +23,9 @@ go.work.sum
 
 .vscode
 redis-data
+
+# folder for deployed 
+bin
+db
+
+*.rdb
